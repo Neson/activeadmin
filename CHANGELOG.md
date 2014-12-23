@@ -1,17 +1,26 @@
 ## 1.0.0 [☰](https://github.com/activeadmin/activeadmin/compare/v0.6.3...master) (unreleased)
 
 ### Major Changes
+
 * Migration from Metasearch to Ransack [#1979][] by [@seanlinsley][]
 * Rails 4 support [#2326][] by many people :heart:
 
 ### Enhancements
+
+* Allow to enable comments on per-resource basis [#3695][] by [@pranas][]
+* Rename `allow_comments` to `comments` for more consistent naming [#3695][] by [@pranas][]
+* Unify DSL for index `actions` and `actions dropdown: true` [#3463][] by [@timoschilling][]
+* Add DSL method `includes` for `ActiveRecord::Relation#includes` [#3464][] by [@timoschilling][]
+* BOM (byte order mark) configurable for CSV download [#3519][] by [@timoschilling][]
+* Column block on table index is now sortable by default [#3075][] by [@dmitry][]
+* Allow Arbre to be used inside ActiveAdmin forms [#3486][] by [@varyonic][]
 * Make AA ORM-agnostic [#2545][] by [@johnnyshields][]
 * Add multi-record support to `attributes_table_for` [#2544][] by [@zorab47][]
 * Table CSS classes are now prefixed to prevent clashes [#2532][] by [@TimPetricola][]
 * Allow Inherited Resources shorthand for redirection [#2001][] by [@seanlinsley][]
 ```ruby
     controller do
-      # Redirects to index page instead of rendering udpated resource
+      # Redirects to index page instead of rendering updated resource
       def update
         update!{ collection_path }
       end
@@ -33,6 +42,10 @@ index download_links: ->{ can?(:view_all_download_links) || [:pdf] }
 * "New" action item now only shows up on the index page bf659bc by [@seanlinsley][]
 * Fixes comment creation bug with aliased resources 9a082486 by [@seanlinsley][]
 * Fixes the deletion of `:if` and `:unless` from filters [#2523][] by [@PChambino][]
+
+### Removements
+
+* JS `window.AA` has been removed, use `window.ActiveAdmin` [#3606][] by [@timoschilling][]
 
 ## 0.6.3 [☰](https://github.com/activeadmin/activeadmin/compare/v0.6.2...v0.6.3)
 
@@ -220,7 +233,7 @@ index download_links: ->{ can?(:view_all_download_links) || [:pdf] }
 * Developer can pass options for CSV generation. [#1626][] by [@rheaton][]
 ```ruby
     ActiveAdmin.register Post do
-      csv options: {force_quotes: true} do
+      csv options: { force_quotes: true } do
         column :title
       end
     end
@@ -966,6 +979,12 @@ of the highlights. 250 commits. Enough said.
 [#2601]: https://github.com/activeadmin/activeadmin/issues/2601
 [#2744]: https://github.com/activeadmin/activeadmin/issues/2744
 [#2847]: https://github.com/activeadmin/activeadmin/issues/2847
+[#3075]: https://github.com/activeadmin/activeadmin/issues/3075
+[#3463]: https://github.com/activeadmin/activeadmin/issues/3463
+[#3464]: https://github.com/activeadmin/activeadmin/issues/3464
+[#3486]: https://github.com/activeadmin/activeadmin/issues/3486
+[#3519]: https://github.com/activeadmin/activeadmin/issues/3519
+[#3695]: https://github.com/activeadmin/activeadmin/issues/3695
 [@Bishop]: https://github.com/Bishop
 [@BoboFraggins]: https://github.com/BoboFraggins
 [@DMajrekar]: https://github.com/DMajrekar
@@ -990,6 +1009,7 @@ of the highlights. 250 commits. Enough said.
 [@developer88]: https://github.com/developer88
 [@dhiemstra]: https://github.com/dhiemstra
 [@dmfrancisco]: https://github.com/dmfrancisco
+[@dmitry]: https://github.com/dmitry
 [@doug316]: https://github.com/doug316
 [@ebeigarts]: https://github.com/ebeigarts
 [@ejholmes]: https://github.com/ejholmes
@@ -1038,6 +1058,7 @@ of the highlights. 250 commits. Enough said.
 [@pcreux]: https://github.com/pcreux
 [@per_page]: https://github.com/per_page
 [@potatosalad]: https://github.com/potatosalad
+[@pranas]: https://github.com/pranas
 [@psy-q]: https://github.com/psy-q
 [@ptn]: https://github.com/ptn
 [@randym]: https://github.com/randym
@@ -1060,6 +1081,7 @@ of the highlights. 250 commits. Enough said.
 [@sunny]: https://github.com/sunny
 [@tank-bohr]: https://github.com/tank-bohr
 [@teoulas]: https://github.com/teoulas
+[@timoschilling]: https://github.com/timoschilling
 [@tinynumbers]: https://github.com/tinynumbers
 [@tracedwax]: https://github.com/tracedwax
 [@tricknotes]: https://github.com/tricknotes
@@ -1067,6 +1089,7 @@ of the highlights. 250 commits. Enough said.
 [@vairix]: https://github.com/vairix
 [@vairix-ssierra]: https://github.com/vairix-ssierra
 [@valdemarua]: https://github.com/valdemarua
+[@varyonic]: https://github.com/varyonic
 [@watson]: https://github.com/watson
 [@whatcould]: https://github.com/whatcould
 [@yawn]: https://github.com/yawn
